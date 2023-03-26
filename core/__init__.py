@@ -1,4 +1,5 @@
 from flask import Flask
+from flask_session import Session
 from core.routes import routes
 from core.models import db
 
@@ -12,6 +13,7 @@ def create_app():
         SESSION_PERMANENT=False,
         SESSION_TYPE='sqlalchemy',
         SESSION_SQLALCHEMY_TABLE='sessions',
+        SESSION_SQLALCHEMY=db,
         SQLALCHEMY_DATABASE_URI='mysql://root@localhost:3306/news_app',
         SQLALCHEMY_TRACK_MODIFICATIONS=False
     )
@@ -21,7 +23,7 @@ def create_app():
     return app
 
 app = create_app()
-
+Session(app)
 with app.app_context():
     db.init_app(app)
     db.create_all()
