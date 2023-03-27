@@ -10,10 +10,10 @@ def create_app():
     app.config.update(
         SECRET_KEY='very-secret-key',  # secret key used to sign the session cookie
         SESSION_COOKIE_NAME='test-session',  # sets cookie name
-        PERMANENT_SESSION_LIFETIME=timedelta(days=31), # sets cookie expiry
-        # please get this from os environment...
+        PERMANENT_SESSION_LIFETIME=timedelta(days=31),  # sets cookie expiry
         SESSION_TYPE='sqlalchemy',
         SESSION_SQLALCHEMY=db,
+        # please get this from os environment...
         SQLALCHEMY_DATABASE_URI='mysql://root@localhost:3306/news_app',
         SQLALCHEMY_TRACK_MODIFICATIONS=False
     )

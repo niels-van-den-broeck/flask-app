@@ -1,2 +1,4 @@
 Flask==2.2.3
+Flask_Session==0.4.0
 flask_sqlalchemy==3.0.3
+SQLAlchemy==2.0.7
